@@ -13,8 +13,9 @@ body {
     background: #000;
     overflow: hidden;
 }
-.icons-list {
-    position: absolute;
+
+.device {
+    position: relative;
     background: url("../assets/iphone5s.png") no-repeat;
     background-size: 510px 883px;
     width: 510px;
@@ -22,26 +23,86 @@ body {
             left: calc(50% - 255px);
         top: calc(50% - 441px);
 }
-.icons-list ul {
+
+.screen {
     position: absolute;
-    padding: 26px 16px;
-    background: url("../assets/background.png");
+    /*background: url("../assets/background.png");*/
+    background-color: white;
     background-size: 320px 568px;
     width: 320px;
     height: 568px;
     left: 89px;
-    top: 103px;
+    top: 118px;
+    overflow: hidden;
+    background: linear-gradient(to bottom, rgb(239, 247, 253) 0%, rgb(239, 247, 253) calc(100% - 92px), #000000 calc(100% - 92px), rgba(255, 255, 255, 0.8) calc(100% - 92px),rgba(255, 255, 255, 0.8) 100%);
+}
+
+.status-bar {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #000;
+
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.status-bar .network {
+    position: absolute;
+    left: 0;
+}
+
+.status-bar .network:before {
+    content: '•••••';
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 4px;
+    vertical-align: middle;
+}
+
+.status-bar .network:after {
+    content:'';
+    background: url("../assets/icons/wifi_black.png") no-repeat;
+}
+
+.status-bar .icons {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.status-bar img {
+    margin: 0 4px;
+    height: 10px;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.springboard {
+    width: 100%;
+    height: calc(100% - 20px);
+}
+
+.springboard ul {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 5px calc((100% - 4*60px - 3*16px) / 2);
     overflow: hidden;
 }
-.icons-list ul.shaking .dragging div {
+
+.springboard ul.shaking .dragging div {
     -webkit-animation: none;
     animation: none;
 }
-.icons-list ul.shaking div {
+.springboard ul.shaking div {
     -webkit-animation: shake 0.25s 0s ease-in-out infinite;
     animation: shake 0.25s 0s ease-in-out infinite;
 }
-.icons-list li {
+.springboard li {
     -webkit-transition: opacity, -webkit-transform 0.25s ease-in-out;
     transition: opacity, -webkit-transform 0.25s ease-in-out;
     transition: opacity, transform 0.25s ease-in-out;
@@ -54,35 +115,35 @@ body {
     color: #000;
     font-family: Helvetica, Arial, sans-serif;
 }
-.icons-list li span {
+.springboard li span {
     width: 100%;
     display: block;
     position: absolute;
     text-align: center;
     top: 64px;
 }
-.icons-list li.placeholder {
+.springboard li.placeholder {
     cursor: auto;
 }
-.icons-list li.placeholder div {
+.springboard li.placeholder div {
     background: none;
 }
-.icons-list li.placeholder span {
+.springboard li.placeholder span {
     display: none;
 }
-.icons-list li.dragging {
+.springboard li.dragging {
     -webkit-transition: none;
     transition: none;
     opacity: 0.75;
 }
-.icons-list li.dragging div {
+.springboard li.dragging div {
     -webkit-transform: scale(1.25);
     transform: scale(1.25);
 }
-.icons-list li.dragging div:after {
+.springboard li.dragging div:after {
     opacity: 0.75;
 }
-.icons-list li div {
+.springboard li div {
     background: #fff url("../assets/icons.jpg") no-repeat;
     background-size: 1440px 60px;
     width: 100%;
@@ -93,7 +154,7 @@ body {
     transition: transform 0.25s ease-out;
     transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
 }
-.icons-list li div:after {
+.springboard li div:after {
     content: '';
     left: 0;
     top: 0;
@@ -105,76 +166,76 @@ body {
     border-radius: 12px;
     opacity: 0;
 }
-.icons-list li div.appstore {
+.springboard li div.appstore {
     background-position: 0px 0px;
 }
-.icons-list li div.calculator {
+.springboard li div.calculator {
     background-position: -60px 0px;
 }
-.icons-list li div.calendar {
+.springboard li div.calendar {
     background-position: -120px 0px;
 }
-.icons-list li div.camera {
+.springboard li div.camera {
     background-position: -180px 0px;
 }
-.icons-list li div.clock {
+.springboard li div.clock {
     background-position: -240px 0px;
 }
-.icons-list li div.compass {
+.springboard li div.compass {
     background-position: -300px 0px;
 }
-.icons-list li div.facetime {
+.springboard li div.facetime {
     background-position: -360px 0px;
 }
-.icons-list li div.itunesstore {
+.springboard li div.itunesstore {
     background-position: -420px 0px;
 }
-.icons-list li div.mail {
+.springboard li div.mail {
     background-position: -480px 0px;
 }
-.icons-list li div.maps {
+.springboard li div.maps {
     background-position: -540px 0px;
 }
-.icons-list li div.messages {
+.springboard li div.messages {
     background-position: -600px 0px;
 }
-.icons-list li div.music {
+.springboard li div.music {
     background-position: -660px 0px;
 }
-.icons-list li div.passbook {
+.springboard li div.passbook {
     background-position: -720px 0px;
 }
-.icons-list li div.phone {
+.springboard li div.phone {
     background-position: -780px 0px;
 }
-.icons-list li div.photos {
+.springboard li div.photos {
     background-position: -840px 0px;
 }
-.icons-list li div.reminders {
+.springboard li div.reminders {
     background-position: -900px 0px;
 }
-.icons-list li div.safari {
+.springboard li div.safari {
     background-position: -960px 0px;
 }
-.icons-list li div.settings {
+.springboard li div.settings {
     background-position: -1020px 0px;
 }
-.icons-list li div.stocks {
+.springboard li div.stocks {
     background-position: -1080px 0px;
 }
-.icons-list li div.twitter {
+.springboard li div.twitter {
     background-position: -1140px 0px;
 }
-.icons-list li div.weather {
+.springboard li div.weather {
     background-position: -1200px 0px;
 }
-.icons-list li div.newsstand {
+.springboard li div.newsstand {
     background-position: -1260px 0px;
 }
-.icons-list li div.videos {
+.springboard li div.videos {
     background-position: -1320px 0px;
 }
-.icons-list li div.notes {
+.springboard li div.notes {
     background-position: -1380px 0px;
 }
 .info {
@@ -230,7 +291,7 @@ body {
     }
 }
 
-.pushbuzz-app {
+iframe {
     position: absolute;
     left: 0;
     top: 20px;
@@ -240,14 +301,14 @@ body {
     background-color: white;
     border: none;
     z-index: 999;
-    -webkit-transition: transform 0.5s; /* Safari */
+    -webkit-transition: transform 0.5s; 
     transition: transform 0.5s;
 }
 
-.pushbuzz-app.visible {
+iframe.visible {
     transform: scale(1) !important;
-    -webkit-transition: transform 0.5s; /* Safari */
-    transition: transform 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
 }
 
 .home-button {

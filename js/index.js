@@ -62,7 +62,9 @@
             this.items = [].slice.call(this.context.children);
             this.items.forEach((function(_this) {
                 return function(item, id) {
-                    return _this.addItem(item);
+                    if (item.nodeName == "LI") {
+                        return _this.addItem(item);
+                    }
                 };
             })(this));
             return;
@@ -250,10 +252,12 @@
             this.snapToGrid(this.itemVOs[this.currentItem.getAttribute('id')]);
             this.context.removeEventListener('mouseleave', this.onMouseRelease);
             this.context.removeEventListener('mouseup', this.onMouseRelease);
-            if (hasClass(this.currentItem, "pushbuzz")) {
-                addClass(document.querySelector('.pushbuzz-app'), "visible");
-                if (document.querySelector('.pushbuzz-app').src.length == 0) {
-                    document.querySelector('.pushbuzz-app').src = "http://mp.dev.ctz.lan/cctv/";
+            if (hasClass(this.currentItem, "app")) {
+                addClass(document.querySelector('iframe'), "visible");
+                console.log(document.querySelector('iframe').src, this.currentItem.getAttribute('src'));
+                console.log(document.querySelector('iframe').src == this.currentItem.getAttribute('src'));
+                if (this.currentItem.getAttribute('src').length > 0 && document.querySelector('iframe').src != this.currentItem.getAttribute('src')) {
+                    document.querySelector('iframe').src = this.currentItem.getAttribute('src');
                 }
             }
         };
@@ -284,10 +288,10 @@
 
     document.querySelector('.home-button').addEventListener('mouseup', function(event){
         removeClass(event.currentTarget, "pressed");
-        removeClass(document.querySelector('.pushbuzz-app'), "visible");
+        removeClass(document.querySelector('iframe'), "visible");
     }, false);
 
-    iconsList = document.querySelector('.icons-list ul');
+    iconsList = document.querySelector('ul');
 
     grid = new ShuffleGrid(iconsList, 4, 6, 60, 60, 16, 28);
 }).call(this);
