@@ -122,30 +122,9 @@ body {
     text-align: center;
     top: 64px;
 }
-.springboard li.placeholder {
-    cursor: auto;
-}
-.springboard li.placeholder div {
-    background: none;
-}
-.springboard li.placeholder span {
-    display: none;
-}
-.springboard li.dragging {
-    -webkit-transition: none;
-    transition: none;
-    opacity: 0.75;
-}
-.springboard li.dragging div {
-    -webkit-transform: scale(1.25);
-    transform: scale(1.25);
-}
-.springboard li.dragging div:after {
-    opacity: 0.75;
-}
+
 .springboard li div {
-    background: #fff url("../assets/icons.jpg") no-repeat;
-    background-size: 1440px 60px;
+    background: #fff;
     width: 100%;
     height: 100%;
     border-radius: 12px;
@@ -166,6 +145,11 @@ body {
     border-radius: 12px;
     opacity: 0;
 }
+.springboard li div.ios-app {
+    background: #fff url("../assets/icons.jpg") no-repeat;
+    background-size: 1440px 60px;
+}
+
 .springboard li div.appstore {
     background-position: 0px 0px;
 }
@@ -238,6 +222,32 @@ body {
 .springboard li div.notes {
     background-position: -1380px 0px;
 }
+.springboard li div.citizencam {
+    background: #fff url("../assets/ctz-tv-icon.png") no-repeat;
+}
+
+.springboard li.placeholder {
+    cursor: auto;
+}
+.springboard li.placeholder div {
+    background: none;
+}
+.springboard li.placeholder span {
+    display: none;
+}
+.springboard li.dragging {
+    -webkit-transition: none;
+    transition: none;
+    opacity: 0.75;
+}
+.springboard li.dragging div {
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+}
+.springboard li.dragging div:after {
+    opacity: 0.75;
+}
+
 .info {
     width: 320px;
     font-family: Arial, sans-serif;
