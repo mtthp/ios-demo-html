@@ -282,6 +282,11 @@
 
     })();
 
+    function setTime(){
+        var date = new Date();
+        document.querySelector('.status-bar .time').innerHTML = date.getHours() + ":" + date.getMinutes();
+    }
+
     document.querySelector('.home-button').addEventListener('mousedown', function(event){
         addClass(event.currentTarget, "pressed");
     }, false);
@@ -294,4 +299,10 @@
     iconsList = document.querySelector('ul');
 
     grid = new ShuffleGrid(iconsList, 4, 6, 60, 60, 16, 28);
+
+    setTime();
+    var time_handler = setInterval(setTime, 60000); // precise time doesn't matter
+
+    var batteryPromise = navigator.getBattery();
+    console.log(batteryPromise);
 }).call(this);
