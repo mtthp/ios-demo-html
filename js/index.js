@@ -296,6 +296,10 @@
         removeClass(document.querySelector('iframe'), "visible");
     }, false);
 
+    document.querySelector('.home-button').addEventListener('mouseleave', function(event){
+        removeClass(event.currentTarget, "pressed");
+    }, false);
+
     iconsList = document.querySelector('ul');
 
     grid = new ShuffleGrid(iconsList, 4, 6, 60, 60, 16, 28);
